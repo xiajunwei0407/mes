@@ -17,3 +17,15 @@
         use Bkqw\Mes\Facades\MesAction; 
         MesAction::send($mobile, $content);        
 ```
+
+##### 完整代码示例：
+```php
+try{
+    $mobile = ['your mobile 1', 'your mobile 2'];
+    $content = '【八块钱网】我是一条短信';
+    $res = MesAction::send($mobile, $content);
+}catch (\Exception $e){
+    return $e->getMessage();
+}
+return $res;
+```
