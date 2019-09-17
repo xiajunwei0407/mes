@@ -24,7 +24,7 @@
                 "Bkqw\\Mes\\Providers\\MesServiceProvider"
             ],
             "aliases": {
-                "Mes": "Bkqw\\Mes\\Facades\\Mes"
+                "Mes": "Bkqw\\Mes\\Facades\\MesAction"
             }
         }
     }

@@ -7,12 +7,13 @@
 ##### 如何使用？
 ```php
 1. composer require bkqw/mes
-2. php artisan vendor:pulish    
+2. php artisan vendor:pulish 
+   选择 Bkqw\Mes\Providers\MesServiceProvider 
    该命令会在config目录下生成mes.php配置文件，请根据实际情况修改配置
 3. 你可以这样调用： 
-        app()->make(MesAction::class)->send($mobile, $content);
-   也可以这样： 
-        MesAction::send($mobile, $content);
-   记得use命名空间： 
         use Bkqw\Mes\MesAction;
+        app()->make(MesAction::class)->send($mobile, $content);
+   也可以使用门面：
+        use Bkqw\Mes\Facades\MesAction; 
+        MesAction::send($mobile, $content);        
 ```

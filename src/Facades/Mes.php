@@ -6,10 +6,10 @@ namespace Bkqw\Mes\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class Mes extends Facade
+class MesAction extends Facade
 {
     public static function getFacadeAccessor()
     {
-        return 'mes';
+        return \Bkqw\Mes\MesAction::class;
     }
 }
