@@ -17,7 +17,6 @@ class MesAction
 
     public function __construct()
     {
-        $this->config = config('mes');
         $this->seqno  = md5(mt_rand(100000, 999999));
     }
 
@@ -25,10 +24,11 @@ class MesAction
      * 调用联通短信接口发送短信
      * @param array $mobile 手机号码，请自行检查手机号码的合法性
      * @param string $content 短信内容
+     * @param string $type 短信类型：yzm=验证码，yx=营销
      * @param string $method 'sendGWMsg' => 不带系统签名，需要再内容前面加【签名】, 'sendNormMsg' => 自带系统签名
      * @return false|string
      */
-    public function send(array $mobile = [], $content = '', $method = 'sendGWMsg')
+    public function send(array $mobile = [], $content = '', $type = 'yzm', $method = 'sendGWMsg')
     {
         if(empty($mobile)){
             return Response::fail('至少传入一个手机号码');
@@ -39,6 +39,7 @@ class MesAction
         if($method !== 'sendGWMsg' && $method !== 'sendNormMsg'){
             return Response::fail('请求方法错误');
         }
+        $this->config = config('mes.' . $type);
         $params = [
             $this->config['username'],
             $this->config['pwd'],
