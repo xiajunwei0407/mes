@@ -36,7 +36,7 @@ class MesAction
         if(!$content){
             return Response::fail('短信内容不能为空');
         }
-        if($method !== 'sendGWMsg' && $method !== 'sendNormMsg'){
+        if($method != 'sendGWMsg' && $method != 'sendNormMsg'){
             return Response::fail('请求方法错误');
         }
         $this->config = config('mes.' . $type);
